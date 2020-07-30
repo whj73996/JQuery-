@@ -21,16 +21,16 @@ jQuery.prototype = {
   constructor: jQuery,
   find(selector) {
     let array = [];
-    for (let i = 0; i < element.length; i++) {
-      array = array.concat(Array.from(element[i].querySelectorAll(selector)));
+    for (let i = 0; i < this.element.length; i++) {
+      array = array.concat(Array.from(this.element[i].querySelectorAll(selector)));
     }
     array.oldApi = this;
     const newApi = jQuery(array);
     return newApi;
   },
   each(fn) {
-    for (let i = 0; i < element.length; i++) {
-      fn.call(null, element[i], i);
+    for (let i = 0; i < this.element.length; i++) {
+      fn.call(null, this.element[i], i);
     }
     return this;
   },
@@ -44,11 +44,11 @@ jQuery.prototype = {
     return jQuery(array);
   },
   print() {
-    console.log(element);
+    console.log(this.element);
   },
   addClass(className) {
-    for (let i = 0; i < element.length; i++) {
-      element[i].classList.add(className);
+    for (let i = 0; i < this.element.length; i++) {
+      this.element[i].classList.add(className);
     }
     return this;
   },

@@ -118,8 +118,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"jQuery.js":[function(require,module,exports) {
-//别名的使用，等号在同一个语句，是从右往左执行的
 window.$ = window.jQuery = function (selectorOrArray) {
+  //别名的使用，等号在同一个语句，是从右往左执行的
   var element;
 
   if (typeof selectorOrArray === 'string') {
@@ -133,7 +133,10 @@ window.$ = window.jQuery = function (selectorOrArray) {
   // api.element = element
   // api.oldApi = selectorOrArray.oldApi
 
-  Object.assign(api, {});
+  Object.assign(api, {
+    element: element,
+    oldApi: selectorOrArray.oldApi
+  });
   return api;
 };
 
@@ -209,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65049" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56732" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
